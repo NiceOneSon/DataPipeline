@@ -22,7 +22,7 @@
 [서비스 계정이란](https://www.notion.so/IAM-21def2538f424a89a173a6ea3abbb3ae?pvs=4#7ed255a943ee458bb0027123d9fa86bd)\
 Compute Engine에서 Dataproc 등 다른 서비스를 API로 이용할 때 인증된 계정을 사용.\
 Compute Engine에 대해 아래와 같은 서비스 계정을 생성해 API를 수행. 
-![Service account for API](./images/Service_Account.png)
+![Service account for API](./images/ServiceAccount.png)
 
 ### Others for Security
 API Key 및 작업 환경 경로 등을 위해서 코드에 직접적으로 작성하기 보다 Variables나 Connections를 만들어 사용함.
