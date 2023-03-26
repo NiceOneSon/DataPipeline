@@ -55,3 +55,6 @@ DW는 PK개념이 없기 때문에 다음과 같이 멱등성을 구현.
 
 ## Final DAG
 ![DAG](./images/Dag_flow.png)
+
+## BigQuery Partitioning & Clustering
+![DAG](./images/Bigquery_schema.png)
