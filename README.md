@@ -11,7 +11,7 @@
 3-1. 이때 파이프라인은 백필등의 작업에도 멱등성을 보장합니다.
 
 ## Architecture of Data Pipeline
-[Architecture of Pipeline](./images/Pipeline_Architecture.png)
+![Architecture of Pipeline](./images/Pipeline_Architecture.png)
 
 ## Considerations
 ### IAM
@@ -49,4 +49,4 @@ b. 새로운 데이터를 tmp 테이블로 업로드.
 c. Window 함수를 사용해 가장 최근 업데이트 된 데이터만 추출해 원본 테이블을 업데이트.
 
 ## Final DAG
-DAG Structure
+![DAG](./images/Dag_flow.png)
