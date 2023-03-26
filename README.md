@@ -15,8 +15,8 @@
 
 ## Considerations
 ### IAM
-#### Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.\
-#### Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
+1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.
+2. Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
 
 ### Service Account
 [서비스 계정이란](https://www.notion.so/IAM-21def2538f424a89a173a6ea3abbb3ae?pvs=4#7ed255a943ee458bb0027123d9fa86bd)\
