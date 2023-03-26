@@ -15,7 +15,8 @@
 
 ## Considerations
 ### IAM
-1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.
+1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.\
+Google Cloud Storage 관리자.
 2. Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
 
 ### Service Account
