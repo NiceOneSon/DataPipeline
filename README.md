@@ -15,7 +15,7 @@
 
 ## Considerations
 ### IAM
-1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경. -> 개체 생성자\
+1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경. -> 개체 생성자
 2. Compute Engine에서 BigQuery project 내 테이블 생성, 삭제, 변경. -> 관리자\
 ![Variables](./images/iam_roles.png)
 
