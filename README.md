@@ -1,13 +1,13 @@
 # DataPipeline
-#### hihi
+
 ## Purpose of repository
-주식 데이터 분석 및 시계열 모델을 위한 DW 구축. 이를 위한 간단한 데이터 엔지니어링 프로젝트를 목표.\
+주식 데이터 분석 및 시계열 모델을 위한 DW 구축. 이를 위한 간단한 데이터 엔지니어링 프로젝트를 목표.
 파이프라인은 Google Cloud Platform위에서 Batch로 Incremental하게 동작합니다.
 
 ## Description
-1. Daily 스케쥴로 주식 데이터를 API를 활용해 로컬(Cloud Compute Engine)로 가져옵니다.\
-2. 가져온 데이터를 Cloud Dataproc(Spark/Hadoop)를 활용해 Transform을 수행합니다.\
-3. Transformed 된 결과를 GCS(Cloud Storage)에 저장한 후 BigQuery에 업데이트 합니다.\
+1. Daily 스케쥴로 주식 데이터를 API를 활용해 로컬(Cloud Compute Engine)로 가져옵니다.
+2. 가져온 데이터를 Cloud Dataproc(Spark/Hadoop)를 활용해 Transform을 수행합니다.
+3. Transformed 된 결과를 GCS(Cloud Storage)에 저장한 후 BigQuery에 업데이트 합니다.
 3-1. 이때 파이프라인은 백필등의 작업에도 멱등성을 보장합니다.
 
 ## Architecture of Data Pipeline
@@ -15,8 +15,8 @@
 
 ## Considerations
 ### IAM
-1. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.\
-2. Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
+#### Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변경, 삭제.\
+#### Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
 
 ### Service Account
 [서비스 계정이란](https://www.notion.so/IAM-21def2538f424a89a173a6ea3abbb3ae?pvs=4#7ed255a943ee458bb0027123d9fa86bd)\
@@ -24,9 +24,9 @@ Compute Engine에서 Dataproc 등 다른 서비스를 API로 이용할 때 인�
 Compute Engine에 대해 아래와 같은 서비스 계정을 생성해 API를 수행.
 
 ### Others for Security
-API Key 및 작업 환경 경로 등을 위해서 코드에 직접적으로 작성하기 보다 Variables나 Connections를 만들어 사용함.\
-1. Variables\
-2. Connections
+API Key 및 작업 환경 경로 등을 위해서 코드에 직접적으로 작성하기 보다 Variables나 Connections를 만들어 사용함.
+#### Variables
+#### Connections
 
 ### Cost
 Dataproc 비용은 초 단위로 청구. 따라서 클러스터를 생성해 지속사용하는 것은 비용 낭비라고 생각함.\
