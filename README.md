@@ -19,7 +19,7 @@ a. Compute Engine에서 Google Cloud Storage내 리소스를 조회하고, 변�
 c. Compute Engine에서 BigQuery project 내 테이블 삭제, 변경.
 
 ### Service Account
-서비스 계정이란
+[서비스 계정이란](https://www.notion.so/IAM-21def2538f424a89a173a6ea3abbb3ae?pvs=4#7ed255a943ee458bb0027123d9fa86bd)
 Compute Engine에서 Dataproc 등 다른 서비스를 API로 이용할 때 인증된 계정을 사용.
 Compute Engine에 대해 아래와 같은 서비스 계정을 생성해 API를 수행.
 
@@ -34,12 +34,13 @@ Dataproc 비용은 초 단위로 청구. 따라서 클러스터를 생성해 지
 위 파이프라인은 하루에 한 번 돌아가는 배치 형태이므로 매 DAG 실행마다 클러스터를 생성하고 삭제하는 형식으로 파이프라인이 동작.
 
 ### Schema
-a. csv와 BigQuery간 데이터 타입 문제.
-csv는 컬럼 별 형식을 가지지 않기 때문에 string 형태와 data format 형태가 달라 문제 발생.
+1. csv와 BigQuery간 데이터 타입 문제.\
+csv는 컬럼 별 형식을 가지지 않기 때문에 string 형태와 data format 형태가 달라 문제 발생.\
 이를 해결하기 위해 Json 형태의 Fixed된 스키마 형태를 사용했고 Date, Datetime, Time, Timestamp의 차이를 배웠음. (Refer/Schema에 정리)
-b. BigQuery Performance 문제.
-하루에 약 300Kb가량의 적은 데이터이지만 매일 쌓이기 때문에 장기간 사용시 테이블의 크기가 매우 커질 수 있음. Clustering과 Partitioning을 활용해 해결.
-Clustering과 Partitioning이란
+
+2. BigQuery Performance 문제.\
+하루에 약 300Kb가량의 적은 데이터이지만 매일 쌓이기 때문에 장기간 사용시 테이블의 크기가 매우 커질 수 있음.\
+Clustering과 Partitioning을 활용해 해결. [Clustering과 Partitioning이란](https://www.notion.so/NoSQL-c714213918d84e17b0896f6d62b390d7?pvs=4#59d52765cd3c4f8dbcb1aab24468617f)
 
 Idempotency(멱등성)
 Incremental Update(Daily)이므로 멱등성 보장이 필요.
