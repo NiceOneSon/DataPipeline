@@ -27,8 +27,10 @@ Compute Engine에 대해 아래와 같은 서비스 계정을 생성해 API를 �
 ### Others for Security
 API Key 및 작업 환경 경로 등을 위해서 코드에 직접적으로 작성하기 보다 Variables나 Connections를 만들어 사용함.
 1. Variables
+
 ![Variables](./images/Variables.png)
 2. Connections
+
 ![Connections](./images/Connections.png)
 
 ### Cost
