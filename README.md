@@ -4,7 +4,7 @@
 주식 데이터 분석 및 시계열 모델을 위한 DW 구축. 이를 위한 간단한 데이터 엔지니어링 프로젝트를 목표.\
 파이프라인은 Google Cloud Platform위에서 Batch로 Incremental하게 동작합니다.
 
-## Description
+## Process
 1. Daily 스케쥴로 주식 데이터를 API를 활용해 로컬(Cloud Compute Engine)로 가져옵니다.
 2. 가져온 데이터를 Cloud Dataproc(Spark/Hadoop)를 활용해 Transform을 수행합니다.
 3. Transformed 된 결과를 GCS(Cloud Storage)에 저장한 후 BigQuery에 업데이트 합니다.\
