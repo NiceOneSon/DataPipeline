@@ -41,12 +41,12 @@ csv는 컬럼 별 형식을 가지지 않기 때문에 string 형태와 data for
 하루에 약 300Kb가량의 적은 데이터이지만 매일 쌓이기 때문에 장기간 사용시 테이블의 크기가 매우 커질 수 있음.\
 Clustering과 Partitioning을 활용해 해결. [Clustering과 Partitioning이란](https://www.notion.so/NoSQL-c714213918d84e17b0896f6d62b390d7?pvs=4#59d52765cd3c4f8dbcb1aab24468617f)
 
-Idempotency(멱등성)
+### Idempotency(멱등성)
 Incremental Update(Daily)이므로 멱등성 보장이 필요.\
 DW는 PK개념이 없기 때문에 다음과 같이 멱등성을 구현.\
-a. 기존 Origin 테이블을 tmp 테이블로 복사(Create Table As Select)\
-b. 새로운 데이터를 tmp 테이블로 업로드.\
-c. Window 함수를 사용해 가장 최근 업데이트 된 데이터만 추출해 원본 테이블을 업데이트.
+1. 기존 Origin 테이블을 tmp 테이블로 복사(Create Table As Select)
+2. 새로운 데이터를 tmp 테이블로 업로드.
+3. Window 함수를 사용해 가장 최근 업데이트 된 데이터만 추출해 원본 테이블을 업데이트.
 
 ## Final DAG
 ![DAG](./images/Dag_flow.png)
