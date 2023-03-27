@@ -11,6 +11,7 @@
 3-1. 이때 파이프라인은 백필등의 작업에도 멱등성을 보장합니다.
 
 ## Architecture of Data Pipeline
+Perspectives of movement of data
 ![Architecture of Pipeline](./images/Pipeline_Architecture.png)
 
 ## Considerations
