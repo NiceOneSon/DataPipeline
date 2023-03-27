@@ -1,11 +1,9 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.types import NullType
 import os
 import datetime
 import argparse
 import logging
-import csv
 import pandas as pd
+from pyspark.sql import SparkSession
 
 
 def MakeASpark():
@@ -16,8 +14,11 @@ def MakeASpark():
                  getOrCreate()
     return spark
 
-def ProcessingData(spark, input_file, output_file, agg_output_path):
-    readcsv = spark.read.csv(input_file, inferSchema=True, header=True)
+def ProcessingData(spark, folder_path, raw_stock_csv, folder_transformed, folder_aggregated):
+    readcsv = spark.read.csv(os.path.join(folder_path,\
+                                          raw_stock_csv)\
+                            , inferSchema=True\
+                            , header=True)
     readcsv.createOrReplaceTempView('stock_dataset')
 
     logdf = spark.sql("""
@@ -68,7 +69,7 @@ def ProcessingData(spark, input_file, output_file, agg_output_path):
     .option('header', True)\
     .format("csv")\
     .mode("overwrite")\
-    .save(agg_output_path)
+    .save(os.path.join(folder_path, folder_aggregated))
 
     df\
     .coalesce(1)\
@@ -76,14 +77,14 @@ def ProcessingData(spark, input_file, output_file, agg_output_path):
     .option('header', True)\
     .format("csv")\
     .mode("overwrite")\
-    .save(output_file)
-
+    .save(os.path.join(folder_path, folder_transformed))
     return rows
 
-def LoggingData(input_path, rows, today):
+def LoggingData(log_path, rows):
+    today = datetime.datetime.today()
     date = datetime.datetime.strptime(today, '%Y%m%d')
     year = date.year
-    path = os.path.join(input_path, f'log_{year}.csv')
+    path = os.path.join(log_path, f'log_{year}.csv')
     row = pd.DataFrame({'year' : [year], 'num_of_rows' : [rows]})
     try:
         tmpdf = pd.read_csv(path)
@@ -97,29 +98,31 @@ def LoggingData(input_path, rows, today):
 def main():
     parser = argparse.ArgumentParser()
     # -- : Optional, (non) -- : required
-    parser.add_argument("input_folder_path", type=str, help="Directory where csv files stored")
-    parser.add_argument("output_folder_path", type=str, help="Directory where parquet files being saved")
-    parser.add_argument("log_path", type=str, help="Directory where parquet files being saved")
-    parser.add_argument("input_file", type = str, help = "File name what should be processed")
-    parser.add_argument("output_file", type = str, help = "File name what after processing")
-    parser.add_argument("today", type=str, help="Where is a date being triggered", default=datetime.datetime.today().strftime('%Y%m%d'))
-    args = parser.parse_args()
+    parser.add_argument("folder_path", type=str, help="Directory where csv files stored")
+    parser.add_argument("raw_stock_csv", type=str, help="Directory where csv files stored")
+    parser.add_argument("folder_transformed", type=str, help="Directory where csv files stored")
+    parser.add_argument("folder_aggregated", type=str, help="Directory where csv files stored")
+    parser.add_argument("--log_path", type=str, help="Directory where csv files stored", default=None)
+    parser.add_argument("--mode", type=str, help="Directory where parquet files being saved", default = 'only_trans')
 
-    input_folder_path = args.input_folder_path
-    output_folder_path = args.output_folder_path
+    args = parser.parse_args()
+    mode = args.mode
+    folder_path = args.folder_path
+    raw_stock_csv = args.raw_stock_csv
+    folder_transformed = args.folder_transformed
+    folder_aggregated = args.folder_aggregated
     log_path = args.log_path
-    input_file = args.input_file
-    output_file = args.output_file
-    today = args.today
-    input_file = input_file.format(today)
-    output_file = output_file.format(today)
-    input_path = os.path.join(input_folder_path, input_file)
-    output_path = os.path.join(output_folder_path, output_file)
-    agg_output_path = os.path.join(output_folder_path, 'agg_'+output_file)
+    if log_path == None:
+        paths = folder_path.split('/')
+        paths = paths[:-1] + ['logfiles']
+        log_path = '/'.join(paths)
 
     spark = MakeASpark()
-    rows = ProcessingData(spark, input_path, output_path, agg_output_path)
-    LoggingData(log_path, rows, today)
+    rows = ProcessingData(spark, folder_path,\
+                          raw_stock_csv, folder_transformed,\
+                          folder_aggregated)
+    if mode == 'add_log':
+        LoggingData(log_path, rows)
 
 if __name__ == '__main__':
     main()

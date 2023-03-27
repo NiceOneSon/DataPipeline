@@ -1,0 +1,17 @@
+[
+    { "mode" : "NULLABLE", "name" : "itmsNm",  "type" : "STRING" },
+    { "mode" : "NULLABLE", "name" : "mrktCtg", "type" : "STRING" }, 
+    { "mode" : "NULLABLE", "name" : "clpr",    "type" : "INTEGER" },
+    { "mode" : "NULLABLE", "name" : "vs",     "type" : "INTEGER" },
+    { "mode" : "NULLABLE", "name" : "fltRt", "type" : "FLOAT" }, 
+    { "mode" : "NULLABLE", "name" : "mkp", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "hipr", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "lopr", "type" : "INTEGER" },
+    { "mode" : "NULLABLE", "name" : "trqu", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "trPrc", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "lstgStCnt", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "mrktTotAmt", "type" : "INTEGER" }, 
+    { "mode" : "NULLABLE", "name" : "update", "type" : "TIMESTAMP" }, 
+    { "mode" : "NULLABLE", "name" : "modified", "type" : "TIMESTAMP" }, 
+    { "mode" : "NULLABLE", "name" : "basDT", "type" : "DATE" } 
+]
