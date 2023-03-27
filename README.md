@@ -58,4 +58,6 @@ DW는 PK개념이 없기 때문에 다음과 같이 멱등성을 구현.
 ![DAG](./images/Dag_flow.png)
 
 ## BigQuery Partitioning & Clustering
+Partitioning : 날짜 별로 파티셔닝을 하여 Incremental Update 시 데이터가 계속해서 증가해도 Performance를 보장.
+Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시계열 모델 생성을 위해 데이터 추출에 있어 빠른 성능을 보장하기 위해 해당 필드를 기준으로 클러스터링 생성
 ![DAG](./images/Bigquery_schema.png)
