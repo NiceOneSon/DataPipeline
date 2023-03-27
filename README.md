@@ -1,6 +1,6 @@
 # DataPipeline
 
-## Purpose of repository
+## Purpose of project
 주식 데이터 분석 및 시계열 모델을 위한 DW 구축. 이를 위한 배치 파이프라인 구축 프로젝트를 목표.\
 파이프라인은 Google Cloud Platform위에서 Batch로 Incremental하게 동작합니다.
 
