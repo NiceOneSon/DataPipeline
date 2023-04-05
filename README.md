@@ -66,7 +66,7 @@ Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시
 ## 업그레이드
 - &#x2610; compute engine이 아닌 GKE를 활용 (4월)
 - &#x2610; GKE 오토 스케일링 (4월)
-- &#x2610; 리소스 모니터링 CA & PHA 사용방안 고민 (4월)
+- &#x2610; 리소스 모니터링 CA & HPA 사용방안 고민 (4월)
 - &#x2610; ML Pipeline 개발(LSTM) (5월)
 - &#x2610; 스트리밍 파이프라인(Pub/Sub Dataflow BigTable) (미정)
 
