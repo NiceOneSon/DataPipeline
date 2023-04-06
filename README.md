@@ -64,9 +64,9 @@ Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시
 ![DAG](./images/Bigquery_schema.png)
 
 ## 추후 버전 업그레이드 예정
-- &#x2610; compute engine이 아닌 GKE를 활용 (4월)
-- &#x2610; GKE 오토 스케일링 (4월)
-- &#x2610; 리소스 모니터링 CA & HPA 사용방안 고민 (4월)
+- &#x2610; GKE(google kubenetes engine)활용 (4월)
+- &#x2610; 비용, 트래픽 관점에서 모니터링, 오토 스케일링(CA & HPA) 사용방안 고민(4월)
+- &#x2610; 채권 등 다른 데이터 파이프라인 개발(5월)
 - &#x2610; ML Pipeline 개발(LSTM) (5월)
 - &#x2610; 스트리밍 파이프라인(Pub/Sub Dataflow BigTable) (미정)
 
