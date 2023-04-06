@@ -63,7 +63,7 @@ Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시
 
 ![DAG](./images/Bigquery_schema.png)
 
-## 업그레이드
+## 추후 버전 업그레이드 예정
 - &#x2610; compute engine이 아닌 GKE를 활용 (4월)
 - &#x2610; GKE 오토 스케일링 (4월)
 - &#x2610; 리소스 모니터링 CA & HPA 사용방안 고민 (4월)
