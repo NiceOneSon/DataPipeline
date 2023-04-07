@@ -64,7 +64,7 @@ def ProcessingData(spark, folder_path, raw_stock_csv, folder_transformed, folder
     
     
     dfagg\
-    .coalesce(1)\
+#    .coalesce(1)\ 확인차 테스트 용. 
     .write\
     .option('header', True)\
     .format("csv")\
@@ -72,7 +72,7 @@ def ProcessingData(spark, folder_path, raw_stock_csv, folder_transformed, folder
     .save(os.path.join(folder_path, folder_aggregated))
 
     df\
-    .coalesce(1)\
+#    .coalesce(1)\
     .write\
     .option('header', True)\
     .format("csv")\
