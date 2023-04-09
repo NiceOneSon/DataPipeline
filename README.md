@@ -64,7 +64,7 @@ Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시
 ![DAG](./images/Bigquery_schema.png)
 
 ## 추후 버전 업그레이드 예정
-### 문제 1. DAG의 수가 급격히 늘어나서 Compute Engine의 부하가 커진다면?
+### 문제 1. DAG의 수가 급격히 늘어나서 현재 단일 머신(Compute Engine)의 부하가 커진다면?
 - &#x2610; GKE(google kubenetes engine)활용 (4월)
 - &#x2610; 비용, 트래픽 관점에서 모니터링, 오토 스케일링(CA & HPA) 사용방안 고민(4월)
 
