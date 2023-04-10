@@ -92,6 +92,6 @@ Clustering : 종목(KOSPI, KODAQ 등) 또는 기업 별 데이터 분석 및 시
       - &#x2610; ML 파이프라인 및 모니터링 방안 고려 또는 파이프라인 개발(LSTM) (5월)
 
 2) Real time pipeline. \
-    i. &#x2610; 스트리밍 파이프라인(Pub/Sub Dataflow BigTable) (5월~6)
+    i. &#x2610; 스트리밍 파이프라인(Pub/Sub Dataflow BigTable) (5월~6월)
 
 &#x2610; &#x2611;
